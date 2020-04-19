@@ -54,7 +54,8 @@ class LinkedList:
         if self.size == 0:
             return None
 
-        current_head_val = self._head.value
+        to_return = self._head.value
+
         current_head = self._head
 
         if self.size == 1:
@@ -71,13 +72,15 @@ class LinkedList:
             self.size -= 1
 
         del current_head
-        return current_head_val
+
+        return to_return
 
     def pop_tail(self):
         if self.size == 0:
             return None
 
-        current_tail_val = self._tail.value
+        to_return = self._tail.value
+
         current_tail = self._tail
 
         if self.size == 1:
@@ -94,7 +97,8 @@ class LinkedList:
             self.size -= 1
 
         del current_tail
-        return current_tail_val
+
+        return to_return
 
     def get_head(self):
         return self._head.value
