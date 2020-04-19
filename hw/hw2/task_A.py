@@ -46,23 +46,22 @@ if __name__ == "__main__":
             print("ok")
 
         elif command == "pop":
-            try:
-                val = stack.pop()
-            except AttributeError:
-                print("error")
-            else:
+            val = stack.pop()
+            if val:
                 print(val)
+            else:
+                print("error")
 
         elif command == "back":
-            try:
-                val = stack.back()
-            except AttributeError:
-                print("error")
-            else:
+            val = stack.back()
+            if val:
                 print(val)
+            else:
+                print("error")
 
         elif command == "size":
             size = stack.size
+            print(size)
 
         elif command == "clear":
             stack.clear()

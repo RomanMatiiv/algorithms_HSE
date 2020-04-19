@@ -27,7 +27,7 @@ for bracket in inp:
             result = "no"
             break
 
-if stack.size == 0:
+if stack.size == 0 and not result:
     result = "yes"
 else:
     result = "no"
