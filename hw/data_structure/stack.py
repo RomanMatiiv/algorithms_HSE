@@ -26,3 +26,12 @@ class Stack:
         """Вернуть верхний элемент стека не извлекая его """
         return self._stack.get_head()
 
+
+class StackWithClear(Stack):
+    """
+    Стек, с поддержкой операции clear
+    """
+    def clear(self):
+        """Удаляет все элементы из стека"""
+        while self.size != 0:
+            self.pop()
