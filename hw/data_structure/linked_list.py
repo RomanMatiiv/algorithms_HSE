@@ -30,9 +30,6 @@ class LinkedList:
             previous_head.previous_node = cur_node
             cur_node.next_node = previous_head
             self._head = cur_node
-            # self._head = cur_node
-            # self._head.next_node = previous_head
-            # previous_head.previous_node = cur_node
 
             self.size += 1
 
@@ -54,13 +51,13 @@ class LinkedList:
             self.size += 1
 
     def pop_head(self):
+        if self.size == 0:
+            return None
+
         current_head_val = self._head.value
         current_head = self._head
 
-        if self.size == 0:
-            pass
-
-        elif self.size == 1:
+        if self.size == 1:
             self._head = None
             self._tail = None
 
@@ -77,13 +74,13 @@ class LinkedList:
         return current_head_val
 
     def pop_tail(self):
+        if self.size == 0:
+            return None
+
         current_tail_val = self._tail.value
         current_tail = self._tail
 
-        if self.size == 0:
-            pass
-
-        elif self.size == 1:
+        if self.size == 1:
             self._head = None
             self._tail = None
 
