@@ -8,6 +8,3 @@
 a, i = [int(i) for i in input().split()]
 
 result = (1 << i) | a
-
-print(result)
-
