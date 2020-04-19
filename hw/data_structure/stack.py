@@ -17,10 +17,10 @@ class Stack:
 
     def pop(self):
         """Извлечь верхний элемент из стека"""
-        back_value = self._stack.pop_head()
+        first_val = self._stack.pop_head()
         self.size -= 1
 
-        return back_value
+        return first_val
 
     def back(self):
         """Вернуть верхний элемент стека не извлекая его """
