@@ -101,7 +101,10 @@ class LinkedList:
         return to_return
 
     def get_head(self):
-        return self._head.value
+        if self.size == 0:
+            return None
+        else:
+            return self._head.value
 
     def get_tail(self):
         return self._tail.value
