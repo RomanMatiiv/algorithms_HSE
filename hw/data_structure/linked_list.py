@@ -55,7 +55,6 @@ class LinkedList:
             return None
 
         to_return = self._head.value
-
         current_head = self._head
 
         if self.size == 1:
@@ -68,7 +67,6 @@ class LinkedList:
             next_node.previous_node = None
 
             self._head = next_node
-
             self.size -= 1
 
         del current_head
@@ -80,7 +78,6 @@ class LinkedList:
             return None
 
         to_return = self._tail.value
-
         current_tail = self._tail
 
         if self.size == 1:
@@ -93,7 +90,6 @@ class LinkedList:
             previous_node.next_node = None
 
             self._tail = previous_node
-
             self.size -= 1
 
         del current_tail
