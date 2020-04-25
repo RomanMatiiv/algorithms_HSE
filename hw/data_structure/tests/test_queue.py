@@ -49,6 +49,7 @@ def test_front():
         queue.push(i)
     assert queue.front() == 1
 
+
 def test_on_case_from_hw2_task():
     queue = Queue()
 
