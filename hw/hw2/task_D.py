@@ -76,12 +76,12 @@ if __name__== "__main__":
     player_2 = Queue()
 
     # Раздача карт 1 игроку
-    inp_player_1 = input()
+    inp_player_1 = input()[:9]
     for cart in inp_player_1.split(" "):
         cart = int(cart)
         player_1.push(cart)
     # Раздача карт 2 игроку
-    inp_player_2 = input()
+    inp_player_2 = input()[:9]
     for cart in inp_player_2.split(" "):
         cart = int(cart)
         player_2.push(cart)
@@ -94,9 +94,9 @@ if __name__== "__main__":
 
     # определение того, кто выиграл
     if player_1.size == 0:
-        print(f"first {game.steps}")
-    elif player_2.size == 0:
         print(f"second {game.steps}")
+    elif player_2.size == 0:
+        print(f"first {game.steps}")
     else:
         print("botva")
 
