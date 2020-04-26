@@ -23,7 +23,13 @@
 вывести строку error.
 """
 import sys
-from hw.data_structure.queue import QueueWithClear
+from hw.data_structure.queue import Queue
+
+
+class QueueWithClear(Queue):
+    def clear(self):
+        while self.size != 0:
+            self.pop()
 
 
 if __name__ == "__main__":

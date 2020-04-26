@@ -28,7 +28,17 @@
 то программа должна вместо числового значения вывести строку error.
 """
 import sys
-from hw.data_structure.stack import StackWithClear
+from hw.data_structure.stack import Stack
+
+
+class StackWithClear(Stack):
+    """
+    Стек, с поддержкой операции clear
+    """
+    def clear(self):
+        """Удаляет все элементы из стека"""
+        while self.size != 0:
+            self.pop()
 
 
 if __name__ == "__main__":

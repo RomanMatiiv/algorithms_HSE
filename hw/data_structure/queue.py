@@ -54,9 +54,3 @@ class Queue:
             val = self._stack_inp.pop()
             self._stack_out.push(val)
         return None
-
-
-class QueueWithClear(Queue):
-    def clear(self):
-        while self.size != 0:
-            self.pop()
