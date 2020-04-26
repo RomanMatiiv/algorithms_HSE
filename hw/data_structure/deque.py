@@ -2,24 +2,33 @@ from hw.data_structure.linked_list import LinkedList
 
 
 class Deque:
+    """Структура данных дек реализованная на 2-ух связном списке"""
     def __init__(self):
         self._deque = LinkedList()
         self.size = 0
 
     def push_front(self, value):
-        raise NotImplemented
+        self._deque.insert_head(value)
+        self.size += 1
 
     def push_back(self, value):
-        raise NotImplemented
+        self._deque.insert_tail(value)
+        self.size += 1
 
     def pop_front(self):
-        raise NotImplemented
+        if self.size > 0:
+            self.size -= 1
+
+        return self._deque.pop_head()
 
     def pop_back(self):
-        raise NotImplemented
+        if self.size > 0:
+            self.size -= 1
 
-    def font(self):
-        raise NotImplemented
+        return self._deque.pop_tail()
+
+    def front(self):
+        return self._deque.get_head()
 
     def back(self):
-        raise NotImplemented
+        return self._deque.get_tail()
