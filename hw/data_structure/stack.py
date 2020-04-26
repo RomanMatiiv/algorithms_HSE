@@ -19,7 +19,7 @@ class Stack:
         """Извлечь верхний элемент из стека"""
         first_val = self._stack.pop_head()
 
-        if first_val:
+        if first_val is not None:
             self.size -= 1
 
         return first_val

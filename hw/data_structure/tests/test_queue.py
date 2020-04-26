@@ -48,3 +48,15 @@ def test_front():
     for i in range(4, 100):
         queue.push(i)
     assert queue.front() == 1
+
+
+def test_on_case_from_hw2_task():
+    queue = Queue()
+
+    queue.push(2)
+    queue.push(4)
+    queue.push(6)
+    queue.push(8)
+    queue.push(0)
+
+    assert queue.pop() == 2
