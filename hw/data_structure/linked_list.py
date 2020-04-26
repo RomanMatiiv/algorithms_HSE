@@ -9,7 +9,11 @@ class Node:
 
 
 class LinkedList:
-    """Структура данных двухсвязный список"""
+    """
+    Структура данных двухсвязный список
+
+    При size = 0 вернет None
+    """
 
     def __init__(self):
         self.size = 0
@@ -103,4 +107,7 @@ class LinkedList:
             return self._head.value
 
     def get_tail(self):
-        return self._tail.value
+        if self.size == 0:
+            return None
+        else:
+            return self._tail.value

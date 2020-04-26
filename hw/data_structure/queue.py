@@ -2,7 +2,11 @@ from hw.data_structure.stack import Stack
 
 
 class Queue:
-    """Очередь реализованная на 2 стеках"""
+    """
+    Очередь реализованная на 2 стеках
+
+    При size = 0 push и pop вернет None
+    """
     def __init__(self):
         self._stack_inp = Stack()  # для того чтобы складывать элементы
         self._stack_out = Stack()  # для извлечения элементов

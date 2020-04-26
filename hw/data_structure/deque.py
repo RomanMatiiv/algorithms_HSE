@@ -2,7 +2,11 @@ from hw.data_structure.linked_list import LinkedList
 
 
 class Deque:
-    """Структура данных дек реализованная на 2-ух связном списке"""
+    """
+    Структура данных дек реализованная на 2-ух связном списке
+
+    При size = 0 push и pop вернет None
+    """
     def __init__(self):
         self._deque = LinkedList()
         self.size = 0

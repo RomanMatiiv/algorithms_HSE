@@ -5,6 +5,8 @@ class Stack:
     """
     Структура данных стек
     Реализованная через двух связный список
+
+    При size = 0 push и pop вернет None
     """
     def __init__(self):
         self._stack = LinkedList()

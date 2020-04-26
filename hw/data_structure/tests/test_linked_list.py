@@ -19,6 +19,9 @@ def test_insert():
 def test_pop():
     llist = LinkedList()
 
+    assert llist.get_head() is None
+    assert llist.get_tail() is None
+
     llist.insert_head(1)
     assert llist.get_head() == 1
     assert llist.get_tail() == 1
