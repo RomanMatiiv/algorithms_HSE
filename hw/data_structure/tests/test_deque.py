@@ -5,16 +5,16 @@ def test_push():
     deque = Deque()
 
     deque.push_front(1)
-    assert deque.font() == 1
+    assert deque.front() == 1
     assert deque.back() == 1
 
     deque.push_front(2)
     assert deque.back() == 1
-    assert deque.font() == 2
+    assert deque.front() == 2
 
     deque.push_back(1)
     deque.push_back(2)
-    assert deque.font() == 2
+    assert deque.front() == 2
     assert deque.back() == 2
 
 
