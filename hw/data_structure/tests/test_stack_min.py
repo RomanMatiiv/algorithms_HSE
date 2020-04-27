@@ -1,8 +1,8 @@
-from hw.data_structure.stack import Stack
+from hw.data_structure.stack import StackMin
 
 
 def test_push():
-    stack = Stack()
+    stack = StackMin()
 
     stack.push(1)
     assert stack.back() == 1
@@ -13,7 +13,7 @@ def test_push():
 
 
 def test_pop():
-    stack = Stack()
+    stack = StackMin()
 
     stack.push(1)
     assert stack.size == 1
@@ -26,3 +26,20 @@ def test_pop():
     assert stack.size == 1
     assert stack.pop() == 3
     assert stack.size == 0
+
+
+def test_min():
+    stack = StackMin()
+
+    stack.push(4)
+    assert stack.min() == 4
+
+    stack.push(1)
+    assert stack.min() == 1
+
+    stack.push(3)
+    assert stack.min() == 1
+
+    stack.pop()
+    stack.pop()
+    assert stack.min() == 4
