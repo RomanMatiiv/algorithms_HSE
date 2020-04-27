@@ -32,12 +32,14 @@ class Stack:
 
 
 class StackMin:
+    """Реализация стека с поддержкой минимума"""
     def __init__(self):
         self._stack = Stack()
         self._stack_min = Stack()
         self.size = 0
 
     def push(self, value):
+        """Добавление элемента в стек"""
         self._stack.push(value)
         self.size += 1
 
@@ -52,13 +54,24 @@ class StackMin:
                 self._stack_min.push(cur_min)
 
     def pop(self):
+        """
+        Извлечение элемента из стека
+
+        Из пустого стека извлекается None
+        """
         if self._stack.back() is not None:
             self.size -= 1
         self._stack_min.pop()
         return self._stack.pop()
 
     def back(self):
+        """
+        Возвращает последний элемент в стека без извлечения
+
+        Из пустого стека возвращается None
+        """
         return self._stack.back()
 
     def min(self):
+        """Возвращает минимальный элемент в стеке"""
         return self._stack_min.back()
