@@ -21,7 +21,7 @@ n, k = [int(i) for i in input().strip().split()]
 arr = [int(i) for i in input().strip().split()]
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     queue = MinQueue()
 
     for i, val in enumerate(arr, 1):
