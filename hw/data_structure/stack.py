@@ -1,34 +1,40 @@
-from hw.data_structure.linked_list import DoublyLinkedList
 
 
 class Stack:
     """
     Структура данных стек
-    Реализованная через двух связный список
+    Реализованная через динамический массив
 
-    При size = 0 push и pop вернет None
+    При size = 0 back и pop вернет None
     """
     def __init__(self):
-        self._stack = DoublyLinkedList()
         self.size = 0
+        self.array = []
 
     def push(self, value):
-        """Добавить в стек число value"""
-        self._stack.insert_head(value)
+        """Добавить в стек value"""
+        self.array.append(value)
         self.size += 1
+
+        return None
 
     def pop(self):
         """Извлечь верхний элемент из стека"""
-        first_val = self._stack.pop_head()
-
-        if first_val is not None:
+        if self.size == 0:
+            last_value = None
+        else:
+            last_value = self.array[-1]
             self.size -= 1
+            del self.array[-1]
 
-        return first_val
+        return last_value
 
     def back(self):
-        """Вернуть верхний элемент стека не извлекая его """
-        return self._stack.get_head()
+        """Возвращает последний элемент в стеке без извлечения"""
+        if self.size == 0:
+            return None
+        else:
+            return self.array[-1]
 
 
 class StackMin:
