@@ -8,7 +8,7 @@ class Node:
         self.previous_node = None
 
 
-class LinkedList:
+class DoublyLinkedList:
     """
     Структура данных двухсвязный список
 

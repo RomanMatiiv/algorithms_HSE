@@ -1,8 +1,8 @@
-from hw.data_structure.linked_list import LinkedList
+from hw.data_structure.linked_list import DoublyLinkedList
 
 
 def test_insert():
-    llist = LinkedList()
+    llist = DoublyLinkedList()
 
     llist.insert_head(1)
     assert llist.get_head() == 1
@@ -17,7 +17,7 @@ def test_insert():
 
 
 def test_pop():
-    llist = LinkedList()
+    llist = DoublyLinkedList()
 
     assert llist.get_head() is None
     assert llist.get_tail() is None
@@ -43,7 +43,7 @@ def test_pop():
 
 
 def test_size():
-    llist = LinkedList()
+    llist = DoublyLinkedList()
 
     llist.insert_head(1)
     assert llist.size == 1

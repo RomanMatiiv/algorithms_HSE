@@ -1,4 +1,4 @@
-from hw.data_structure.linked_list import LinkedList
+from hw.data_structure.linked_list import DoublyLinkedList
 
 
 class Stack:
@@ -9,7 +9,7 @@ class Stack:
     При size = 0 push и pop вернет None
     """
     def __init__(self):
-        self._stack = LinkedList()
+        self._stack = DoublyLinkedList()
         self.size = 0
 
     def push(self, value):

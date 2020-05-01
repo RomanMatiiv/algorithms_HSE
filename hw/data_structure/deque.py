@@ -1,4 +1,4 @@
-from hw.data_structure.linked_list import LinkedList
+from hw.data_structure.linked_list import DoublyLinkedList
 
 
 class Deque:
@@ -8,7 +8,7 @@ class Deque:
     При size = 0 push и pop вернет None
     """
     def __init__(self):
-        self._deque = LinkedList()
+        self._deque = DoublyLinkedList()
         self.size = 0
 
     def push_front(self, value):
