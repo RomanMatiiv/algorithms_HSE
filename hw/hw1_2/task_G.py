@@ -7,3 +7,12 @@ an=(a2)n/2 при четном n, an=a⋅ an-1 при нечетном n.
 Реализуйте алгоритм быстрого возведения в степень.
 Если вы все сделаете правильно, то сложность вашего алгоритма будет O(log n).
 """
+
+from hw.algoritms.bin_pow import bin_pow
+
+
+if __name__ == "__main__":
+    a = float(input())
+    n = int(input())
+
+    print(bin_pow(a, n))
