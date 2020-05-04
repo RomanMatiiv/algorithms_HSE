@@ -1,6 +1,8 @@
 
 
 class Node:
+    __slots__ = ['value', 'next_node', 'previous_node']
+
     def __init__(self, value):
         self.value = value
 
@@ -12,7 +14,7 @@ class DoublyLinkedList:
     """
     Структура данных двухсвязный список
 
-    При size = 0 вернет None
+    При size = 0 get и pop вернет None
     """
 
     def __init__(self):
