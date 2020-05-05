@@ -16,7 +16,7 @@ class DoublyLinkedList:
 
     При size = 0 get и pop вернет None
     """
-
+    # TODO добавить удаление узлов (del Node)
     def __init__(self):
         self.size = 0
         self._head = None
