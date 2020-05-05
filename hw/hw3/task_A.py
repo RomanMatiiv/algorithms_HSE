@@ -1,27 +1,29 @@
-def binary_search(arr, val):
-    """Реализация бинарного поиска
+"""
+Задача A. Двоичный поиск
 
-        где arr: это отсортированный массив
-    """
-    finished = False
+В первой строке входных данных содержатся натуральные числа N и K .
+Во второй строке задаются N элементов первого массива,
+а в третьей строке – K элементов второго массива.
+Элементы обоих массивов - целые числа,
+каждое из которых по модулю не превосходит 10**9
 
-    while not finished:
-        l = len(arr)//2
-        r = len(arr)//2 + 1
+Требуется для каждого из K чисел вывести в отдельную строку
+"YES", если это число встречается в первом массиве
+"NO" в противном случае.
+"""
 
-        if arr[l] < val:
-            arr = arr[:l]
-        elif arr[r] >= val:
-            arr = arr[r+1:]
-
-    return arr[l]
+from hw.algoritms.binary_search import binary_search
 
 
-binary_search([1, 2, 3, 4, 5], 3)
+if __name__ == "__main__":
+    _ = input()
 
-# if __name__ == "__main__":
-#     _ = input()
-#
-#     arr = [int(i) for i in input().spli(" ")]
-#     requests = [int(i) for i in input().spli(" ")]
+    arr = [int(i) for i in input().strip().split(" ")]
+    requests = [int(i) for i in input().strip().split(" ")]
+
+    for request in requests:
+        if binary_search(arr, request):
+            print("YES")
+        else:
+            print("NO")
 
