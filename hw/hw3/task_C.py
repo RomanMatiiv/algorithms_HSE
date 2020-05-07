@@ -13,8 +13,8 @@ N  – количество элементов в первом массиве.
 Далее идет количество элементов M во втором массиве
 и M элементов второго массива.
 """
-from hw.algoritms.binary_search import lower_bound
-from hw.algoritms.binary_search import upper_bound
+from algoritms.binary_search import lower_bound
+from algoritms.binary_search import upper_bound
 
 if __name__ == "__main__":
     # N

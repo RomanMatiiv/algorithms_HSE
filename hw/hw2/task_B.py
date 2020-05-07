@@ -7,7 +7,7 @@
 Последовательность не содержит пробелов
 (но после последнего символа могут идти пробелы и переходы на новую строку).
 """
-from hw.data_structure.stack import Stack
+from data_structure.stack import Stack
 
 OPENING_BRACKETS = ["(", "[", "{"]
 

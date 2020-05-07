@@ -8,7 +8,7 @@ an=(a2)n/2 при четном n, an=a⋅ an-1 при нечетном n.
 Если вы все сделаете правильно, то сложность вашего алгоритма будет O(log n).
 """
 
-from hw.algoritms.bin_pow import bin_pow
+from algoritms.bin_pow import bin_pow
 
 
 if __name__ == "__main__":

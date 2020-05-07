@@ -28,7 +28,7 @@
 то программа должна вместо числового значения вывести строку error.
 """
 import sys
-from hw.data_structure.stack import Stack
+from data_structure.stack import Stack
 
 
 class StackWithClear(Stack):

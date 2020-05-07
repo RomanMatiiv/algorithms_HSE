@@ -12,7 +12,7 @@
 "NO" в противном случае.
 """
 
-from hw.algoritms.binary_search import binary_search
+from algoritms.binary_search import binary_search
 
 
 if __name__ == "__main__":

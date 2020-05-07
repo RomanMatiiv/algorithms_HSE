@@ -43,7 +43,7 @@
 """
 
 import sys
-from hw.data_structure.deque import Deque
+from data_structure.deque import Deque
 
 
 class DequeWithClear(Deque):

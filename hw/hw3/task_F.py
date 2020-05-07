@@ -12,8 +12,8 @@
 Для каждого из K чисел выведите в отдельную строку число из первого массива,
 наиболее близкое к данному. Если таких несколько, выведите меньшее из них.
 """
-from hw.algoritms.binary_search import lower_bound
-from hw.algoritms.binary_search import upper_bound
+from algoritms.binary_search import lower_bound
+from algoritms.binary_search import upper_bound
 
 if __name__ == "__main__":
     _ = input()
