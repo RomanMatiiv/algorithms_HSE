@@ -1,4 +1,4 @@
-from hw.data_structure.linked_list import DoublyLinkedList
+from data_structure.linked_list import DoublyLinkedList
 
 
 def test_insert():

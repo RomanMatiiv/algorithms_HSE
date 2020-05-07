@@ -1,8 +1,8 @@
-from hw.data_structure.queue import MinQueue
+from data_structure.queue import Queue
 
 
 def test_push():
-    queue = MinQueue()
+    queue = Queue()
 
     queue.push(1)
     assert queue.front() == 1
@@ -14,7 +14,7 @@ def test_push():
 
 
 def test_pop():
-    queue = MinQueue()
+    queue = Queue()
 
     queue.push(1)
     assert queue.pop() == 1
@@ -34,7 +34,7 @@ def test_pop():
 
 
 def test_front():
-    queue = MinQueue()
+    queue = Queue()
 
     queue.push(1)
     assert queue.front() == 1
@@ -51,7 +51,7 @@ def test_front():
 
 
 def test_on_case_from_hw2_task():
-    queue = MinQueue()
+    queue = Queue()
 
     queue.push(2)
     queue.push(4)
@@ -60,19 +60,3 @@ def test_on_case_from_hw2_task():
     queue.push(0)
 
     assert queue.pop() == 2
-
-
-def test_min():
-    queue = MinQueue()
-
-    queue.push(3)
-    assert queue.min() == 3
-
-    queue.push(2)
-    assert queue.min() == 2
-
-    queue.pop()
-    assert queue.min() == 2
-
-    queue.push(1)
-    assert queue.min() == 1

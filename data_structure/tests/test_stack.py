@@ -1,4 +1,4 @@
-from hw.data_structure.stack import Stack
+from data_structure.stack import Stack
 
 
 def test_push():

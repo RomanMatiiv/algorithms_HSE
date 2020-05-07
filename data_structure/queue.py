@@ -1,5 +1,5 @@
-from hw.data_structure.stack import Stack
-from hw.data_structure.stack import StackMin
+from data_structure.stack import Stack
+from data_structure.stack import StackMin
 
 
 class Queue:

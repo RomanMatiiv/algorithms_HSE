@@ -1,4 +1,4 @@
-from hw.data_structure.deque import Deque
+from data_structure.deque import Deque
 
 
 def test_push():

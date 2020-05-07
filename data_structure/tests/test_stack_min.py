@@ -1,4 +1,4 @@
-from hw.data_structure.stack import StackMin
+from data_structure.stack import StackMin
 
 
 def test_push():
