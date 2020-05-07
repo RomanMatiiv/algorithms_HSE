@@ -10,6 +10,9 @@ def upper_bound(array, value) -> int:
 
     Returns: int(index)
     """
+    if len(array) == 0:
+        raise IndexError
+
     left = 0
     right = len(array) - 1
 
@@ -35,6 +38,9 @@ def lower_bound(array, value) -> int:
 
     Returns: int(index)
     """
+    if len(array) == 0:
+        raise IndexError
+
     left = 0
     right = len(array) - 1
 

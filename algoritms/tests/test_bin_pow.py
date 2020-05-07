@@ -1,4 +1,4 @@
-from hw.algoritms.bin_pow import bin_pow
+from algoritms.bin_pow import bin_pow
 
 
 def test_natural_number():

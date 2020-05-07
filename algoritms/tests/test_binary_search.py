@@ -1,6 +1,6 @@
-from hw.algoritms.binary_search import upper_bound
-from hw.algoritms.binary_search import lower_bound
-from hw.algoritms.binary_search import binary_search
+from algoritms.binary_search import upper_bound
+from algoritms.binary_search import lower_bound
+from algoritms.binary_search import binary_search
 
 
 
