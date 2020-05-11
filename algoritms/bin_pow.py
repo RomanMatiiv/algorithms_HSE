@@ -11,6 +11,6 @@ def bin_pow(a, n):
     elif n == 1:
         return a
     elif n % 2 == 0:
-        return bin_pow(a*a, n/2)
+        return bin_pow(a**2, n/2)
     elif n % 2 != 0:
         return a * bin_pow(a, n-1)
