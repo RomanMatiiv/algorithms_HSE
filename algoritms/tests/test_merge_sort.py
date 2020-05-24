@@ -9,6 +9,10 @@ class Node:
     def __lt__(self, other):
         return self.a < other.a
 
+    def __le__(self, other):
+        return self.a <= other.a
+
+
 
 def test_usual_case():
     arr_N = [3, 1, 4, 51, 1, 3, 4]
