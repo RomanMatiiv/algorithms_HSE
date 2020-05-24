@@ -22,8 +22,8 @@ def test_with_minus_value():
     assert result == true_result
 
 
-def test_on_empty_arr():
-    arr = []
+def test_on_one_element_arr():
+    arr = [1]
     true_result = sorted(arr)
     result = counting_sort(arr)
     assert result == true_result
