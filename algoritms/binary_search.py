@@ -67,6 +67,38 @@ def binary_search(array, value) -> bool:
              False - элемент не содержится в массиве
 
     """
+    left = 0
+    right = len(array)
+
+    while right > left:
+        middle = (right + left)//2
+
+        if array[middle] < value:
+            left = middle + 1
+        else:
+            right = middle
+    try:
+        is_equal = array[left] == value
+    except IndexError:
+        is_equal = False
+
+    return is_equal
+
+
+def binary_search_2(array, value) -> bool:
+    """
+    Проверяет вхождение элемента в массив
+
+    вариант 2 написанный на основе lower_bound и upper_bound
+    Args:
+        array: массив
+        value: элемент вхождение которого хотим проверить
+
+    Returns: bool
+             True - элемент содержится в массиве
+             False - элемент не содержится в массиве
+
+    """
     lb_index = lower_bound(array, value)
 
     if array[lb_index] == value:
