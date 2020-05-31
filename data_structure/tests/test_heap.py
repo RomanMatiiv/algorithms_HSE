@@ -53,6 +53,24 @@ def test_min_heap_pop():
         raise AssertionError
 
 
+def test_min_heap_heapify():
+    heap = MinHeap([0, 1, 1, 2, 3])
+
+    assert heap.min() == 0
+    assert heap.pop_min() == 0
+    assert heap.pop_min() == 1
+    assert heap.pop_min() == 1
+    assert heap.pop_min() == 2
+
+    heap = MinHeap([1, 0, 2, 3, 1])
+
+    assert heap.min() == 0
+    assert heap.pop_min() == 0
+    assert heap.pop_min() == 1
+    assert heap.pop_min() == 1
+    assert heap.pop_min() == 2
+
+
 def test_max_heap_push():
     heap_max = MaxHeap()
     heap_max.push(1)
@@ -102,3 +120,21 @@ def test_max_heap_pop():
         pass
     else:
         raise AssertionError
+
+
+def test_max_heap_heapify():
+    heap = MaxHeap([5, 5, 4, 4, 3])
+
+    assert heap.max() == 5
+    assert heap.pop_max() == 5
+    assert heap.pop_max() == 5
+    assert heap.max() == 4
+    assert heap.pop_max() == 4
+
+    heap = MaxHeap([4, 3, 5, 4, 5])
+
+    assert heap.max() == 5
+    assert heap.pop_max() == 5
+    assert heap.pop_max() == 5
+    assert heap.max() == 4
+    assert heap.pop_max() == 4
