@@ -3,7 +3,8 @@ from copy import copy
 
 class MinHeap:
     def __init__(self, array=[]):
-        self.heap = self._heapify(array)
+        self.heap = copy(array)  # TODO выяснить почему здесь баг
+        self._heapify()
 
     def push(self, value) -> None:
         """
@@ -15,7 +16,7 @@ class MinHeap:
         self.heap.append(value)
 
         last_val_index = len(self.heap) - 1
-        self._sift_up(self.heap, last_val_index)
+        self._sift_up(last_val_index)
 
         return None
 
@@ -29,7 +30,7 @@ class MinHeap:
 
         self.heap[0] = self.heap[-1]
         del self.heap[-1]
-        self._sift_down(self.heap, 0)
+        self._sift_down(0)
 
         return root
 
@@ -41,51 +42,60 @@ class MinHeap:
         """
         return self.heap[0]
 
-    # TODO переписать за асимптотику O(n) а не O(nlogn)
-    def _heapify(self, array: list) -> list:
-        heap = []
+    def _heapify(self) -> None:
+        """
+        Строит кучу из массива
 
-        for val in array:
-            heap.append(val)
-            self._sift_up(heap, len(heap))
+        Переставляя элементы в массиве у которых есть дети
+        """
 
-        return heap
+        for index in range(len(self.heap)//2, -1, -1):
+            self._sift_down(index)
 
-    def _sift_up(self, array: list, index: int) -> None:
-        """"""
+    def _sift_up(self, index: int) -> None:
+        """
+        Просеивает элемент вверх
+
+        Восстанавливая свойства кучи
+        Args:
+            index: индекс элемента который нужно просеить
+        """
         parent_index = (index - 1)//2
 
         while parent_index >= 0:
-            if array[parent_index] > array[index]:
-                # TODO вынести в swap
-                cur_val = copy(array[index])
-                parent_val = copy(array[parent_index])
-                array[index] = parent_val
-                array[parent_index] = cur_val
+            if self.heap[parent_index] > self.heap[index]:
+                self._swap(index, parent_index)
 
                 index = parent_index
                 parent_index = (index - 1)//2
             else:
                 break
 
-    def _sift_down(self, array: list, index: int) -> None:
+    def _sift_down(self, index: int) -> None:
+        """
+        Просеивает элемент вниз
+
+        Восстанавливая свойства кучи
+        Args:
+            index: индекс элемента который нужно просеить
+        """
         left_child_index = 2 * index + 1
         right_child_index = 2 * index + 2
 
-        while right_child_index < len(array):
-            if (array[index] > array[left_child_index] or
-                array[index] > array[right_child_index]):
+        while right_child_index < len(self.heap):
+            parent = self.heap[index]
+            left_child = self.heap[left_child_index]
+            right_child = self.heap[right_child_index]
 
-                if array[right_child_index] < array[left_child_index]:
+            if (parent > left_child or
+                parent > right_child):
+
+                if right_child < left_child:
                     min_child_index = right_child_index
                 else:
                     min_child_index = left_child_index
 
-                # TODO вынести в swap
-                cur_val = copy(array[index])
-                child_val = copy(array[min_child_index])
-                array[index] = child_val
-                array[min_child_index] = cur_val
+                self._swap(index, min_child_index)
 
                 index = min_child_index
                 left_child_index = 2 * index + 1
@@ -93,10 +103,25 @@ class MinHeap:
             else:
                 break
 
+    def _swap(self, index_1: int, index_2: int) -> None:
+        """
+        Меняет 2 элемента в куче местами
+
+        Args:
+            index_1: индекс 1 элемента
+            index_2: индекс 2 элемента
+        """
+        val_1 = copy(self.heap[index_1])
+        val_2 = copy(self.heap[index_2])
+
+        self.heap[index_1] = val_2
+        self.heap[index_2] = val_1
+
 
 class MaxHeap:
     def __init__(self, array=[]):
-        self.heap = self._heapify(array)
+        self.heap = copy(array)  # TODO выяснить почему здесь баг
+        self._heapify()
 
     def push(self, value) -> None:
         """
@@ -108,80 +133,103 @@ class MaxHeap:
         self.heap.append(value)
 
         last_val_index = len(self.heap) - 1
-        self._sift_up(self.heap, last_val_index)
+        self._sift_up(last_val_index)
 
         return None
 
     def pop_max(self):
         """
-        Возвращает максимальный элемент в куче с извлечением
+        Возвращает минимальный элемент в куче с извлечением
 
-        Returns: максимальный элемент в куче
+        Returns: минимальный элемент в куче
         """
         root = copy(self.heap[0])
 
         self.heap[0] = self.heap[-1]
         del self.heap[-1]
-        self._sift_down(self.heap, 0)
+        self._sift_down(0)
 
         return root
 
     def max(self):
         """
-        Возвращает максимальный элемент
+        Возвращает минимальный элемент
 
         (Корень дерева)
         """
         return self.heap[0]
 
-    # TODO переписать за асимптотику O(n) а не O(nlogn)
-    def _heapify(self, array: list) -> list:
-        heap = []
+    def _heapify(self) -> None:
+        """
+        Строит кучу из массива
 
-        for val in array:
-            heap.append(val)
-            self._sift_up(heap, len(heap))
+        Переставляя элементы в массиве у которых есть дети
+        """
 
-        return heap
+        for index in range(len(self.heap)//2, -1, -1):
+            self._sift_down(index)
 
-    def _sift_up(self, array: list, index: int) -> None:
-        """"""
+    def _sift_up(self, index: int) -> None:
+        """
+        Просеивает элемент вверх
+
+        Восстанавливая свойства кучи
+        Args:
+            index: индекс элемента который нужно просеить
+        """
         parent_index = (index - 1)//2
 
         while parent_index >= 0:
-            if array[parent_index] < array[index]:
-                # TODO вынести в swap
-                cur_val = copy(array[index])
-                parent_val = copy(array[parent_index])
-                array[index] = parent_val
-                array[parent_index] = cur_val
+            if self.heap[parent_index] < self.heap[index]:
+                self._swap(index, parent_index)
 
                 index = parent_index
                 parent_index = (index - 1)//2
             else:
                 break
 
-    def _sift_down(self, array: list, index: int) -> None:
+    def _sift_down(self, index: int) -> None:
+        """
+        Просеивает элемент вниз
+
+        Восстанавливая свойства кучи
+        Args:
+            index: индекс элемента который нужно просеить
+        """
         left_child_index = 2 * index + 1
         right_child_index = 2 * index + 2
 
-        while right_child_index<len(array):
-            if (array[index] < array[left_child_index] or
-                array[index] < array[right_child_index]):
+        while right_child_index < len(self.heap):
+            parent = self.heap[index]
+            left_child = self.heap[left_child_index]
+            right_child = self.heap[right_child_index]
 
-                if array[right_child_index] > array[left_child_index]:
-                    max_child_index = right_child_index
+            if (parent < left_child or
+                    parent < right_child):
+
+                if right_child > left_child:
+                    min_child_index = right_child_index
                 else:
-                    max_child_index = left_child_index
+                    min_child_index = left_child_index
 
-                # TODO вынести в swap
-                cur_val = copy(array[index])
-                child_val = copy(array[max_child_index])
-                array[index] = child_val
-                array[max_child_index] = cur_val
+                self._swap(index, min_child_index)
 
-                index = max_child_index
+                index = min_child_index
                 left_child_index = 2 * index + 1
                 right_child_index = 2 * index + 2
             else:
                 break
+
+    def _swap(self, index_1: int, index_2: int) -> None:
+        """
+        Меняет 2 элемента в куче местами
+
+        Args:
+            index_1: индекс 1 элемента
+            index_2: индекс 2 элемента
+        """
+        val_1 = copy(self.heap[index_1])
+        val_2 = copy(self.heap[index_2])
+
+        self.heap[index_1] = val_2
+        self.heap[index_2] = val_1
