@@ -103,6 +103,13 @@ class MinHeap:
             else:
                 break
 
+        # обработка случая, когда свойство кучи будет нарушено
+        # а правого дочернего узла не будет
+        if left_child_index < len(self.heap):
+            if self.heap[left_child_index] < self.heap[index]:
+                self._swap(index, left_child_index)
+
+
     def _swap(self, index_1: int, index_2: int) -> None:
         """
         Меняет 2 элемента в куче местами
@@ -219,6 +226,12 @@ class MaxHeap:
                 right_child_index = 2 * index + 2
             else:
                 break
+
+        # обработка случая, когда свойство кучи будет нарушено
+        # а правого дочернего узла не будет
+        if left_child_index < len(self.heap):
+            if self.heap[left_child_index] > self.heap[index]:
+                self._swap(index, left_child_index)
 
     def _swap(self, index_1: int, index_2: int) -> None:
         """
