@@ -19,7 +19,7 @@ def test_sort_sorted_array():
     arr = [1, 2, 3, 4, 5]
     res = [1, 2, 3, 4, 5]
 
-    assert arr == res
+    assert heap_sort(arr) == res
 
 
 def test_on_natural_number():
