@@ -109,7 +109,6 @@ class MinHeap:
             if self.heap[left_child_index] < self.heap[index]:
                 self._swap(index, left_child_index)
 
-
     def _swap(self, index_1: int, index_2: int) -> None:
         """
         Меняет 2 элемента в куче местами
@@ -123,6 +122,9 @@ class MinHeap:
 
         self.heap[index_1] = val_2
         self.heap[index_2] = val_1
+
+    def __len__(self):
+        return len(self.heap)
 
 
 class MaxHeap:
@@ -246,3 +248,6 @@ class MaxHeap:
 
         self.heap[index_1] = val_2
         self.heap[index_2] = val_1
+
+    def __len__(self):
+        return len(self.heap)
