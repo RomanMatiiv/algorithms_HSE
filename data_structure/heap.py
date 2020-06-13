@@ -132,7 +132,10 @@ class MinHeap:
 
 class MaxHeap:
     def __init__(self, array=[]):
-        self.heap = copy(array)  # TODO выяснить почему здесь баг
+        # если не сделать copy, то передастся по ссылке
+        # а это приведет к тому, что у 2 экземпляров 1 класса
+        # на самом деле будет один и тот же self.heap
+        self.heap = copy(array)
         self._heapify()
 
     def push(self, value) -> None:
