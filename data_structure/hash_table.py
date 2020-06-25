@@ -15,3 +15,9 @@ class HashTable:
 
     def has(self, key) -> NoReturn:
         raise NotImplemented
+
+    def get(self, key):
+        raise NotImplemented
+
+    def __len__(self):
+        raise NotImplemented
