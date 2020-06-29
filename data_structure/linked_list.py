@@ -113,3 +113,8 @@ class DoublyLinkedList:
             return None
         else:
             return self._tail.value
+
+    def __next__(self):
+        # TODO реализовать чтобы в хеш таблице удобно перебирать было
+        # прочитать https://webdevblog.ru/kak-sozdat-svoj-iterator-v-python/
+        raise NotImplemented
