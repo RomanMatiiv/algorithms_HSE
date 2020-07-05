@@ -15,7 +15,7 @@
 n и k  — длины последовательности и «окна», соответственно.
 На следующей строке находятся n целых чисел — сама последовательность.
 """
-from data_structure.queue import MinQueue
+from data_structure.queue_custom import MinQueue
 
 n, k = [int(i) for i in input().strip().split()]
 arr = [int(i) for i in input().strip().split()]

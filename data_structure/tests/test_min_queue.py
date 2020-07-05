@@ -1,4 +1,4 @@
-from data_structure.queue import MinQueue
+from data_structure.queue_custom import MinQueue
 
 
 def test_push():

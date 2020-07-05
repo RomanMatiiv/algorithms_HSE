@@ -14,7 +14,7 @@
 В игре участвует 10 карт, имеющих значения от 0 до 9,
 большая карта побеждает меньшую, карта со значением 0 побеждает карту 9.
 """
-from data_structure.queue import Queue
+from data_structure.queue_custom import Queue
 
 
 class Game:

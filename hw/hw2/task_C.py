@@ -23,7 +23,7 @@
 вывести строку error.
 """
 import sys
-from data_structure.queue import Queue
+from data_structure.queue_custom import Queue
 
 
 class QueueWithClear(Queue):
