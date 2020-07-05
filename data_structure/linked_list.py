@@ -113,6 +113,31 @@ class DoublyLinkedList:
         else:
             return self._tail.value
 
+    def remove(self, value):
+        if self.size == 0:
+            raise ValueError
+
+        # итерация по всем узлам
+        cur_node = self._head
+        while cur_node is not None:
+            if cur_node.value == value:
+                # удаление узла
+                # TODO удалять нужно меняя при этом _head и _tail
+                previous_node = cur_node.previous_node
+                next_node = cur_node.next_node
+                if self.size == 1:
+                    self._head = None
+                    self._tail = None
+                elif previous_node is not None:
+                    previous_node.next_node = next_node
+                elif next_node is not None:
+                    next_node.previous_node = previous_node
+
+                self.size -= 1
+                break
+
+            cur_node = cur_node.next_node
+
     def __iter__(self):
         self.__cur_node = self._head
         return self

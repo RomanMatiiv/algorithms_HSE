@@ -56,3 +56,19 @@ def test_size():
 
     llist.pop_tail()
     assert llist.size == 0
+
+
+def test_remove():
+    llist = DoublyLinkedList()
+
+    try:
+        llist.remove(1)
+    except ValueError:
+        pass
+
+    llist.insert_head(1)
+    llist.insert_head(2)
+    llist.remove(2)
+    assert llist.size == 1
+    assert llist.get_head() == 1
+
