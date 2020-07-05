@@ -16,7 +16,6 @@ class DoublyLinkedList:
 
     При size = 0 get и pop вернет None
     """
-    # TODO добавить удаление узлов (del Node)
     def __init__(self):
         self.size = 0
         self._head = None
@@ -114,7 +113,16 @@ class DoublyLinkedList:
         else:
             return self._tail.value
 
+    def __iter__(self):
+        self.__cur_node = self._head
+        return self
+
     def __next__(self):
-        # TODO реализовать чтобы в хеш таблице удобно перебирать было
-        # прочитать https://webdevblog.ru/kak-sozdat-svoj-iterator-v-python/
-        raise NotImplemented
+        cur_node = self.__cur_node
+
+        if cur_node is None:
+            raise StopIteration
+
+        self.__cur_node = self.__cur_node.next_node
+
+        return cur_node.value
