@@ -45,7 +45,13 @@ class HashTable:
         return None
 
     def remove(self, key) -> None:
-        raise NotImplemented
+        linked_list_index = self.hash_func(key) % self.size
+        linked_list = self.table[linked_list_index]
+
+        if linked_list is not None:
+            for cur_node in linked_list:
+                if cur_node.key == key:
+                    linked_list.remove(cur_node)
 
     def has(self, key) -> bool:
         linked_list_index = self.hash_func(key) % self.size
