@@ -72,3 +72,61 @@ def test_remove():
     assert llist.size == 1
     assert llist.get_head() == 1
 
+    # None <--> 1 <--> None
+    llist = DoublyLinkedList()
+    llist.insert_head(1)
+    llist.remove(1)
+    assert llist.size == 0
+    assert llist.get_head() is None
+    assert llist.get_tail() is None
+
+    # None <--> 1 <--> 2 <--> None
+    llist = DoublyLinkedList()
+    llist.insert_head(2)
+    llist.insert_head(1)
+    llist.remove(1)
+    assert llist.size == 1
+    assert llist.get_head() == 2
+    assert llist.get_tail() == 2
+
+    # None <--> 1 <--> 2 <--> None
+    llist = DoublyLinkedList()
+    llist.insert_head(2)
+    llist.insert_head(1)
+    llist.remove(2)
+    assert llist.size == 1
+    assert llist.get_head() == 1
+    assert llist.get_tail() == 1
+
+
+    # None <--> 1 <--> 2 <--> 3 <--> None
+    llist = DoublyLinkedList()
+    llist.insert_head(3)
+    llist.insert_head(2)
+    llist.insert_head(1)
+    llist.remove(1)
+    assert llist.size == 2
+    assert llist.get_head() == 2
+    assert llist.get_tail() == 3
+
+    # None <--> 1 <--> 2 <--> 3 <--> None
+    llist = DoublyLinkedList()
+    llist.insert_head(3)
+    llist.insert_head(2)
+    llist.insert_head(1)
+    llist.remove(2)
+    assert llist.size == 2
+    assert llist.get_head() == 1
+    assert llist.get_tail() == 3
+
+    # None <--> 1 <--> 2 <--> 3 <--> None
+    llist = DoublyLinkedList()
+    llist.insert_head(3)
+    llist.insert_head(2)
+    llist.insert_head(1)
+    llist.remove(3)
+    assert llist.size == 2
+    assert llist.get_head() == 1
+    assert llist.get_tail() == 2
+
+
