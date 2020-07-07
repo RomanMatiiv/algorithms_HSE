@@ -121,16 +121,17 @@ class DoublyLinkedList:
         cur_node = self._head
         while cur_node is not None:
             if cur_node.value == value:
-                # удаление узла
-                # TODO удалять нужно меняя при этом _head и _tail
                 previous_node = cur_node.previous_node
                 next_node = cur_node.next_node
-                if self.size == 1:
-                    self._head = None
-                    self._tail = None
-                elif previous_node is not None:
+
+                if previous_node is None:
+                    self._head = next_node
+                else:
                     previous_node.next_node = next_node
-                elif next_node is not None:
+
+                if next_node is None:
+                    self._tail = previous_node
+                else:
                     next_node.previous_node = previous_node
 
                 self.size -= 1
