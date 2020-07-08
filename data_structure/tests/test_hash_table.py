@@ -55,24 +55,24 @@ def test_get():
 def test_size():
     ht = HashTable()
 
-    assert ht.size == 0
+    assert len(ht) == 0
 
     ht.insert(key=1, val=None)
-    assert ht.size == 1
+    assert len(ht) == 1
     ht.insert(key=2, val=None)
-    assert ht.size == 2
+    assert len(ht) == 2
     ht.insert(key=1, val=None)
-    assert ht.size == 2
+    assert len(ht) == 2
 
     ht.insert(key=3, val=None)
-    assert ht.size == 3
+    assert len(ht) == 3
     ht.insert(key=5, val=None)
-    assert ht.size == 4
+    assert len(ht) == 4
     ht.insert(key=5, val=None)
-    assert ht.size == 4
+    assert len(ht) == 4
 
     ht.remove(1)
-    assert ht.size == 3
+    assert len(ht) == 3
 
 
 
