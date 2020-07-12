@@ -8,6 +8,18 @@ def test_insert():
     ht.insert("f", None)
     ht.insert(9, None)
 
+    # with rehash
+    ht.insert(9, None)
+    ht.insert(2, None)
+    ht.insert("r", None)
+    ht.insert("g", None)
+    ht.insert("u", None)
+    ht.insert("b", None)
+    ht.insert(11, None)
+    ht.insert(12, None)
+    ht.insert(13, None)
+    ht.insert("w", None)
+
 
 def test_has():
     ht = HashTable()
@@ -20,6 +32,27 @@ def test_has():
     assert ht.has("f") is True
     assert ht.has(4) is False
     assert ht.has(9) is True
+
+    # with rehash
+    ht.insert(9, None)
+    ht.insert(2, None)
+    ht.insert("r", None)
+    ht.insert("g", None)
+    ht.insert("u", None)
+    ht.insert("b", None)
+    ht.insert(11, None)
+    ht.insert(12, None)
+    ht.insert(13, None)
+    ht.insert("w", None)
+
+    assert ht.has(1) is True
+    assert ht.has("f") is True
+    assert ht.has(4) is False
+    assert ht.has(9) is True
+    assert ht.has(2) is True
+    assert ht.has("u") is True
+    assert ht.has(15) is False
+    assert ht.has(11) is True
 
 
 def test_remove():
@@ -50,6 +83,22 @@ def test_get():
 
     ht.insert(9, "r")
     assert ht.get(9) == "r"
+
+    # with rehash
+    ht.insert(9, [1])
+    ht.insert(2, None)
+    ht.insert("r", None)
+    ht.insert("g", 123)
+    ht.insert("u", None)
+    ht.insert("b", None)
+    ht.insert(11, None)
+    ht.insert(12, None)
+    ht.insert(13, None)
+    ht.insert("w", None)
+
+    assert ht.get(1) == [1, 2, 3]
+    assert ht.get(9) == [1]
+    assert ht.get("g") == 123
 
 
 def test_size():
