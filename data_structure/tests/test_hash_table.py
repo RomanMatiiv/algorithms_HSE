@@ -75,4 +75,23 @@ def test_size():
     assert len(ht) == 3
 
 
+def test_the_same_key():
+    ht = HashTable()
+
+    ht.insert(1, "a")
+    ht.insert(9, "b")
+
+    assert ht.has(1) is True
+    assert ht.get(1) == "a"
+    assert ht.has(9) is True
+    assert ht.get(9) == "b"
+    assert len(ht) == 2
+
+    ht.insert(1, "k")
+
+    assert ht.has(1) is True
+    assert ht.get(1) == "k"
+    assert ht.has(9) is True
+    assert ht.get(9) == "b"
+    assert len(ht) == 2
 
