@@ -133,7 +133,22 @@ class HashTable:
             raise KeyError
 
     def __rehash(self):
-        raise NotImplemented
+        self._capacity = self._capacity * 2
+
+        old_table = self.table.copy()
+        del self.table
+
+        self.table = [None] * self._capacity
+        self._size = 0
+        self._load_factor = 0
+
+        for ceil in old_table:
+            if ceil is not None:
+                for node in ceil:
+                    self.insert(key=node.key,
+                                val=node.data)
+
+        del old_table
 
     def __len__(self):
         return self._size
