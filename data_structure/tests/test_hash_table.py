@@ -95,3 +95,11 @@ def test_the_same_key():
     assert ht.get(9) == "b"
     assert len(ht) == 2
 
+
+def test_rehash():
+    ht = HashTable()
+
+    for i in range(1000):
+        ht.insert(key=i, val="a")
+        assert ht._load_factor < ht._THRESHOLD_LOAD_FACTOR
+
