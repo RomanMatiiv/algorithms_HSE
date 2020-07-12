@@ -8,14 +8,6 @@ class Node:
         self.key = key
         self.data = data
 
-    def __eq__(self, other):
-
-        if (self.key == other.key and
-            self.data == other.data):
-            return True
-        else:
-            return False
-
 
 class HashTable:
     """
