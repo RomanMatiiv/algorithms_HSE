@@ -18,7 +18,8 @@ class HashTable:
         self._capacity = capacity
         self._hash_func = hash_func  # TODO написать со своей хеш функцией
         self._size = 0
-        self._alpha = None
+        self._load_factor = 0
+        self._THRESHOLD_LOAD_FACTOR = 0.75
 
         self.table = [None] * self._capacity
 
@@ -40,6 +41,7 @@ class HashTable:
             self.table[linked_list_index] = DoublyLinkedList()
             self.table[linked_list_index].insert_head(node)
             self._size += 1
+            self._load_factor = self._size/self._capacity
 
         # коллизия
         else:
@@ -48,9 +50,13 @@ class HashTable:
             if cur_node is None:
                 self.table[linked_list_index].insert_tail(node)
                 self._size += 1
+                self._load_factor = self._size/self._capacity
             else:
                 if cur_node.key == node.key:
                     cur_node.data = val
+
+        if self._load_factor >= self._THRESHOLD_LOAD_FACTOR:
+            self.__rehash()
 
         return None
 
@@ -71,6 +77,7 @@ class HashTable:
                 if cur_node.key == key:
                     linked_list.remove(cur_node)
                     self._size -= 1
+                    self._load_factor = self._size/self._capacity
         return None
 
     def has(self, key) -> bool:
