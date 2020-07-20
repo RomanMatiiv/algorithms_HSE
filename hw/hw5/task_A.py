@@ -18,15 +18,30 @@
 from data_structure.hash_table import HashTable
 
 if __name__ == "__main__":
-    inp_str = input()
-    inp_str = (inp_str.replace("\n", "")
-                      .replace("\t", "")
+    with open("input.txt") as f:
+        inp_str = f.read()
+
+    inp_str = (inp_str.replace("\n", " ")
+                      .replace("\t", " ")
                       .strip())
 
     hash_table = HashTable()
     for world in inp_str.split():
         if hash_table.has(world):
-            world, frec = hash_table.get(world)
+            frec = hash_table.get(world)
+            frec += 1
             hash_table.insert(world, frec)
+        else:
+            hash_table.insert(world, 1)
+
+    all_frec = []
+    for ceil in hash_table.table:
+        if ceil is not None:
+            for node in ceil:
+                all_frec.append(node)
+
+    all_frec.sort(reverse=True)
+    for node in all_frec:
+        print(node.key)
 
 
