@@ -8,6 +8,27 @@ class Node:
         self.key = key
         self.data = data
 
+    def __lt__(self, other):
+        if self.data < other.data:
+            return True
+        elif self.data > other.data:
+            return False
+        elif self.data == other.data:
+            if self.key < other.key:
+                return False
+            else:
+                return True
+
+    def __gt__(self, other):
+        if self.data > other.data:
+            return True
+        elif self.data < other.data:
+            return False
+        elif self.data == other.data:
+            if self.key > other.key:
+                return False
+            else:
+                return True
 
 class HashTable:
     """
